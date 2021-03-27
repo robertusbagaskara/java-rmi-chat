@@ -23,6 +23,8 @@ import server.IServer;
  * @author user
  */
 public class MainForm extends javax.swing.JFrame {
+    
+    public static String user;
 
     /**
      * Creates new form MainForm
@@ -132,7 +134,8 @@ public class MainForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER && !jTextField1.getText().equals("")) {
             try {
-                iserver.MsgToServer(jTextField1.getText(), nickname, jComboBox1.getSelectedItem().toString());
+//                iserver.MsgToServer(jTextField1.getText(), nickname, jComboBox1.getSelectedItem().toString());
+                iserver.MsgToServer(jTextField1.getText(), user, jComboBox1.getSelectedItem().toString());
                 jTextField1.setText("");
             } catch (Exception e) {
                 e.printStackTrace();
@@ -143,7 +146,8 @@ public class MainForm extends javax.swing.JFrame {
     private void formWindowsClosing(java.awt.event.WindowEvent evt) {
         try {
             if(iserver != null) {
-                iserver.LogoutToServer(clientObj, nickname);
+//                iserver.LogoutToServer(clientObj, nickname);
+                iserver.LogoutToServer(clientObj, user);
             }
         } catch (RemoteException ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -153,6 +157,7 @@ public class MainForm extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        user = args[0];
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -191,19 +196,24 @@ public class MainForm extends javax.swing.JFrame {
                     host = JOptionPane.showInputDialog("Masukan Server Chat", "localhost");
                     iserver = (IServer)Naming.lookup("//" + host + "/DpkServer");
                     
-                    boolean flag = true;
-                    while(flag) {
-                        nickname = JOptionPane.showInputDialog("Masukan Nickname Anda");
-                        if(nickname==null) {
-                            JOptionPane.showConfirmDialog(mf, "Maaf Masukan NickName anda", "Nick Name", JOptionPane.CLOSED_OPTION);
-                        } else if(!nickname.equalsIgnoreCase("")) {
-                            if(iserver.RegisterToServer(clientObj, nickname)) {
-                                mf.setTitle("User : " + nickname);
-                                flag = false;
-                            } else {
-                                JOptionPane.showConfirmDialog(mf, "NickName yang anda gunakan sudah ada", "Nick Name Sudah Ada", JOptionPane.CLOSED_OPTION);
-                            }
-                        }
+//                    boolean flag = true;
+//                    while(flag) {
+//                        nickname = JOptionPane.showInputDialog("Masukan Nickname Anda");
+//                        if(nickname==null) {
+//                            JOptionPane.showConfirmDialog(mf, "Maaf Masukan NickName anda", "Nick Name", JOptionPane.CLOSED_OPTION);
+//                        } else if(!nickname.equalsIgnoreCase("")) {
+//                            if(iserver.RegisterToServer(clientObj, nickname)) {
+//                                mf.setTitle("User : " + nickname);
+//                                flag = false;
+//                            } else {
+//                                JOptionPane.showConfirmDialog(mf, "NickName yang anda gunakan sudah ada", "Nick Name Sudah Ada", JOptionPane.CLOSED_OPTION);
+//                            }
+//                        }
+//                    }
+                    if(iserver.RegisterToServer(clientObj, user)) {
+                        mf.setTitle("User : " + user);
+                    } else {
+                        JOptionPane.showConfirmDialog(mf, "Maaf Terjadi Kesalahan", "Terjadi Kesalahan pada Username", JOptionPane.CLOSED_OPTION);
                     }
                     
                 } catch (NotBoundException ex) {
@@ -250,7 +260,7 @@ public class MainForm extends javax.swing.JFrame {
     static ClientObj clientObj;
     static IServer iserver;
     static String host;
-    static String nickname;
+//    static String nickname;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;

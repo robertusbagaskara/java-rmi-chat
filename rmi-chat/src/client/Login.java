@@ -120,8 +120,10 @@ public class Login extends javax.swing.JFrame {
             if (rs.next()) {
                 if (jTextField1.getText().equals(rs.getString("nama"))&&jTextField2.getText().equals(rs.getString("password"))) {
                     JOptionPane.showMessageDialog(null, "Berhasil Login");
-                    this.dispose();
-                    new server.ServerGUI().setVisible(true);
+                    String user[] = new String[1];
+                    user[0] = jTextField1.getText();
+                    MainForm.main(user);
+                    this.setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(null, "Nama dan passwordmu salah");
                 }
