@@ -44,19 +44,19 @@ public class MainForm extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
+        txtUserList = new javax.swing.JTextArea();
+        txtChatInput = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtChatHistory = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtUserList.setColumns(20);
+        txtUserList.setRows(5);
+        jScrollPane1.setViewportView(txtUserList);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -69,21 +69,26 @@ public class MainForm extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
         );
 
-        jTextField1.setText("Hello");
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtChatInput.setText("Hello");
+        txtChatInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtChatInputActionPerformed(evt);
+            }
+        });
+        txtChatInput.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField1KeyPressed(evt);
+                txtChatInputKeyPressed(evt);
             }
         });
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        txtChatHistory.setColumns(20);
+        txtChatHistory.setRows(5);
+        jScrollPane2.setViewportView(txtChatHistory);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("User Online");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All User" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All User" }));
 
         jLabel2.setText("Select User");
 
@@ -94,7 +99,7 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtChatInput, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -122,27 +127,32 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane2)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtChatInput, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+    private void txtChatInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtChatInputKeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER && !jTextField1.getText().equals("")) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER && !txtChatInput.getText().equals("")) {
             try {
 //                iserver.MsgToServer(jTextField1.getText(), nickname, jComboBox1.getSelectedItem().toString());
-                iserver.MsgToServer(jTextField1.getText(), user, jComboBox1.getSelectedItem().toString());
-                jTextField1.setText("");
+                iserver.MsgToServer(txtChatInput.getText(), user, jComboBox1.getSelectedItem().toString());
+                txtChatInput.setText("");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-    }//GEN-LAST:event_jTextField1KeyPressed
+    }//GEN-LAST:event_txtChatInputKeyPressed
 
+    private void txtChatInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtChatInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtChatInputActionPerformed
+
+    
     private void formWindowsClosing(java.awt.event.WindowEvent evt) {
         try {
             if(iserver != null) {
@@ -234,7 +244,7 @@ public class MainForm extends javax.swing.JFrame {
         mf.NewUser(ClientsName);
     }
     public void NewUser(List<String> ClientsName) {
-        jTextArea1.setText("");
+        txtUserList.setText("");
         String selectedUser = jComboBox1.getSelectedItem().toString();
         jComboBox1.removeAllItems();
         jComboBox1.addItem("All Users");
@@ -244,7 +254,7 @@ public class MainForm extends javax.swing.JFrame {
                 UserName = UserName.substring(0,15) + "..";
             }
             
-            jTextArea1.append(" " + UserName + "\n");
+            txtUserList.append(" " + UserName + "\n");
             jComboBox1.addItem(UserName);
         }
         
@@ -252,7 +262,7 @@ public class MainForm extends javax.swing.JFrame {
     }
     
     public void NewMsg(String msg, String FromUser) {
-        jTextArea2.append(FromUser + " : " + msg + "\n");
+        txtChatHistory.append(FromUser + " : " + msg + "\n");
     }
     
     /*variable*/
@@ -269,8 +279,8 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea txtChatHistory;
+    private javax.swing.JTextField txtChatInput;
+    private javax.swing.JTextArea txtUserList;
     // End of variables declaration//GEN-END:variables
 }
