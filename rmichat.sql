@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2021 at 01:55 PM
+-- Generation Time: Mar 29, 2021 at 03:40 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `chat_rmi`
+-- Database: `rmichat`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `tb_user` (
   `nama` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(10) NOT NULL,
-  `block` varchar(20) NOT NULL
+  `block` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -41,7 +41,29 @@ CREATE TABLE `tb_user` (
 
 INSERT INTO `tb_user` (`id`, `nama`, `email`, `password`, `block`) VALUES
 (1, 'Bagas', 'bagas@mail.com', '123', 'alpha'),
-(2, 'Nio', 'nio@mail.com', '123', 'alpha');
+(2, 'Nio', 'nio@mail.com', '123', 'alpha'),
+(3, 'Glenn', 'glenn@mail.com', '123', NULL),
+(4, 'Tristan', 'tristan@mail.com', '123', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tb_user`
+--
+ALTER TABLE `tb_user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tb_user`
+--
+ALTER TABLE `tb_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

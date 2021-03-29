@@ -172,7 +172,8 @@ public class Login extends javax.swing.JFrame {
                     user[0] = txtUsername.getText();
                     MainForm.main(user);
                     this.setVisible(false);
-                ServerObj.StartServer();    
+                    // Repair soon
+//                    ServerObj.StartServer();
                 } else {
                     JOptionPane.showMessageDialog(null, "Nama dan passwordmu salah");
                 }
