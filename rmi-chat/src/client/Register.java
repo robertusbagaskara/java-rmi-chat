@@ -53,6 +53,7 @@ public class Register extends javax.swing.JFrame {
         txtPassword1 = new javax.swing.JPasswordField();
         txtPassword2 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        btn_back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,13 +99,20 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+        btn_back.setText("Back");
+        btn_back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_backActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(118, 118, 118)
@@ -116,7 +124,7 @@ public class Register extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(jLabel4)))
                         .addGap(0, 115, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -130,7 +138,10 @@ public class Register extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtPassword1)
                                     .addComponent(txtEmail)
-                                    .addComponent(txtPassword2))))))
+                                    .addComponent(txtPassword2)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_back)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -156,7 +167,9 @@ public class Register extends javax.swing.JFrame {
                     .addComponent(txtPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_back)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -195,12 +208,11 @@ public class Register extends javax.swing.JFrame {
                 rs = stat.executeUpdate(sql);
                 System.out.println(rs);
                 JOptionPane.showMessageDialog(null, "Anda Berhasil Terdaftar");
+                Login login = new Login();
+                login.setVisible(true);
                 this.dispose();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e.getMessage());
-                    Login login = new Login();
-                    login.setVisible(true);
-                    this.dispose();
             }
         } else {
             JOptionPane.showMessageDialog(null, "Pastikan Password Anda Benar", "Error", JOptionPane.ERROR_MESSAGE);
@@ -208,6 +220,13 @@ public class Register extends javax.swing.JFrame {
                 }
  
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
+        // TODO add your handling code here:
+        Login login = new Login();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_backActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,6 +254,7 @@ public class Register extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -245,6 +265,7 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_back;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

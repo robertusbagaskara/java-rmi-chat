@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2021 at 03:40 PM
+-- Generation Time: Mar 30, 2021 at 01:14 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `rmichat`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_msg`
+--
+
+CREATE TABLE `tb_msg` (
+  `id` varchar(100) NOT NULL,
+  `message` text NOT NULL,
+  `sender` varchar(25) NOT NULL,
+  `receiver` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -43,7 +56,9 @@ INSERT INTO `tb_user` (`id`, `nama`, `email`, `password`, `block`) VALUES
 (1, 'Bagas', 'bagas@mail.com', '123', 'alpha'),
 (2, 'Nio', 'nio@mail.com', '123', 'alpha'),
 (3, 'Glenn', 'glenn@mail.com', '123', NULL),
-(4, 'Tristan', 'tristan@mail.com', '123', NULL);
+(4, 'Tristan', 'tristan@mail.com', '123', NULL),
+(8, 'Dummy', 'dummy@mail.com', '123', NULL),
+(9, 'dummytwo', 'dummytwo@mail.com', '234', NULL);
 
 --
 -- Indexes for dumped tables
@@ -63,7 +78,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
