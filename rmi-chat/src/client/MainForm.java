@@ -245,7 +245,11 @@ public class MainForm extends javax.swing.JFrame {
                     mf.setVisible(true);
                     
                     clientObj = new ClientObj();
+<<<<<<< HEAD
 //                    host = JOptionPane.showInputDialog("Masukan Server Chat", "localhost");
+=======
+                  //  host = JOptionPane.showInputDialog("Masukan Server Chat", "localhost");
+>>>>>>> 58d174cfe24ab9a650e0398c99fa5b80cb38d06f
                     iserver = (IServer)Naming.lookup("//localhost/DpkServer");
                     
 //                    boolean flag = true;

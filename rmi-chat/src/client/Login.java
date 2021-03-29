@@ -219,7 +219,11 @@ public class Login extends javax.swing.JFrame {
                     user[0] = txtUsername.getText();
                     MainForm.main(user);
                     this.setVisible(false);
+<<<<<<< HEAD
 //                    ServerObj.StartServer();    
+=======
+                    //ServerObj.StartServer();
+>>>>>>> 58d174cfe24ab9a650e0398c99fa5b80cb38d06f
                 } else {
                     JOptionPane.showMessageDialog(null, "Nama dan passwordmu salah");
                 }

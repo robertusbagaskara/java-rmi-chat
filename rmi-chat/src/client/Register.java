@@ -53,7 +53,11 @@ public class Register extends javax.swing.JFrame {
         txtPassword1 = new javax.swing.JPasswordField();
         txtPassword2 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+<<<<<<< HEAD
         btn_back = new javax.swing.JButton();
+=======
+        buttonBack = new javax.swing.JButton();
+>>>>>>> 58d174cfe24ab9a650e0398c99fa5b80cb38d06f
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,10 +103,17 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         btn_back.setText("Back");
         btn_back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_backActionPerformed(evt);
+=======
+        buttonBack.setText("Back");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackActionPerformed(evt);
+>>>>>>> 58d174cfe24ab9a650e0398c99fa5b80cb38d06f
             }
         });
 
@@ -111,6 +122,7 @@ public class Register extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,6 +154,35 @@ public class Register extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_back)))
+=======
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addComponent(jLabel1)
+                .addGap(24, 127, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(113, 113, 113)
+                        .addComponent(txtNama))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(115, 115, 115)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPassword1)
+                            .addComponent(txtEmail)
+                            .addComponent(txtPassword2)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buttonBack)))
+>>>>>>> 58d174cfe24ab9a650e0398c99fa5b80cb38d06f
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -165,11 +206,17 @@ public class Register extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
+<<<<<<< HEAD
                 .addGap(18, 18, 18)
                 .addComponent(btn_back)
                 .addContainerGap(38, Short.MAX_VALUE))
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonBack)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> 58d174cfe24ab9a650e0398c99fa5b80cb38d06f
         );
 
         pack();
@@ -221,12 +268,20 @@ public class Register extends javax.swing.JFrame {
  
     }//GEN-LAST:event_jButton1ActionPerformed
 
+<<<<<<< HEAD
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
         Login login = new Login();
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_backActionPerformed
+=======
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
+       Login login = new Login();
+       login.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_buttonBackActionPerformed
+>>>>>>> 58d174cfe24ab9a650e0398c99fa5b80cb38d06f
 
     /**
      * @param args the command line arguments
@@ -265,7 +320,11 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JButton btn_back;
+=======
+    private javax.swing.JButton buttonBack;
+>>>>>>> 58d174cfe24ab9a650e0398c99fa5b80cb38d06f
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
