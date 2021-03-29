@@ -203,8 +203,8 @@ public class MainForm extends javax.swing.JFrame {
                     mf.setVisible(true);
                     
                     clientObj = new ClientObj();
-                    host = JOptionPane.showInputDialog("Masukan Server Chat", "localhost");
-                    iserver = (IServer)Naming.lookup("//" + host + "/DpkServer");
+                  //  host = JOptionPane.showInputDialog("Masukan Server Chat", "localhost");
+                    iserver = (IServer)Naming.lookup("//localhost/DpkServer");
                     
 //                    boolean flag = true;
 //                    while(flag) {
