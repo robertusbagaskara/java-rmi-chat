@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import server.ServerObj;
-//import com.placeholder.PlaceHolder;
+import com.placeholder.PlaceHolder;
 
 /**
  *
@@ -31,8 +31,8 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         
-//        PlaceHolder holderUsername = new PlaceHolder(txtUsername, "Enter Username");
-//        PlaceHolder holderPassword = new PlaceHolder(txtPassword, "Password");
+        PlaceHolder holderUsername = new PlaceHolder(txtUsername, "Enter Username");
+        PlaceHolder holderPassword = new PlaceHolder(txtPassword, "Password");
         
         ConnectionClass DB = new ConnectionClass();
         DB.config();
