@@ -5,7 +5,7 @@
  */
 package client;
 
-import com.placeholder.PlaceHolder;
+//import com.placeholder.PlaceHolder;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -32,7 +32,7 @@ public class MainForm extends javax.swing.JFrame {
      */
     public MainForm() {
         initComponents();
-        PlaceHolder chat = new PlaceHolder(txtChatInput, "Enter your chat here..");
+//        PlaceHolder chat = new PlaceHolder(txtChatInput, "Enter your chat here..");
     }
 
     /**
