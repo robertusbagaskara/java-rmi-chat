@@ -32,7 +32,7 @@ public class ServerObj extends UnicastRemoteObject implements IServer {
         try {
             reg = java.rmi.registry.LocateRegistry.createRegistry(1099);
             Naming.bind("DpkServer", new ServerObj());
-            System.out.println("Server Ready");
+            System.out.println("Server is Ready");
         } catch (AlreadyBoundException ex) {
             Logger.getLogger(ServerObj.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MalformedURLException ex) {

@@ -264,7 +264,7 @@ public class MainForm extends javax.swing.JFrame {
                     if(iserver.RegisterToServer(clientObj, user)) {
                         mf.setTitle("User : " + user);
                     } else {
-                        JOptionPane.showConfirmDialog(mf, "Maaf Terjadi Kesalahan", "Terjadi Kesalahan pada Username", JOptionPane.CLOSED_OPTION);
+                        JOptionPane.showConfirmDialog(mf, "Something Wrong", "There's some error in Username", JOptionPane.CLOSED_OPTION);
                     }
                     
                 } catch (NotBoundException ex) {

@@ -214,14 +214,14 @@ public class Login extends javax.swing.JFrame {
             rs = stat.executeQuery(sql);
             if (rs.next()) {
                 if (txtUsername.getText().equals(rs.getString("nama"))&&txtPassword.getText().equals(rs.getString("password"))) {
-                    JOptionPane.showMessageDialog(null, "Berhasil Login");
+                    JOptionPane.showMessageDialog(null, "Welcome " + txtUsername.getText() + "!");
                     String user[] = new String[1];
                     user[0] = txtUsername.getText();
                     MainForm.main(user);
                     this.setVisible(false);
 //                ServerObj.StartServer();    
                 } else {
-                    JOptionPane.showMessageDialog(null, "Nama dan passwordmu salah");
+                    JOptionPane.showMessageDialog(null, "Username or Password is Wrong");
                 }
             }
         } catch (Exception e) {

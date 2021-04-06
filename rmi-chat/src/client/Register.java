@@ -60,13 +60,13 @@ public class Register extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("Register");
 
-        jLabel2.setText("Nama");
+        jLabel2.setText("Name");
 
         jLabel3.setText("Email");
 
-        jLabel4.setText("Masukan Password");
+        jLabel4.setText("Type your Password");
 
-        jLabel5.setText("Ulangi Password");
+        jLabel5.setText("Re-Type Password");
 
         txtNama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,24 +196,24 @@ public class Register extends javax.swing.JFrame {
         String jPass1 = Arrays.toString(txtPassword1.getPassword());
         String jPass2 = Arrays.toString(txtPassword2.getPassword());
         if (txtNama.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null, "Nama Tidak Boleh Kosong");}
+        JOptionPane.showMessageDialog(null, "Name can't be null");}
         if (txtEmail.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null, "Email Tidak Boleh Kosong");}
+        JOptionPane.showMessageDialog(null, "Email can't be null");}
         if (txtPassword1.getText().isEmpty() || txtPassword2.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null, "Password Tidak Boleh Kosong");}
+        JOptionPane.showMessageDialog(null, "Please enter your password");}
         else{
         if (jPass1.equals(jPass2)){
             try {
                 sql = "INSERT INTO tb_user(nama, email, password) VALUES ('"+txtNama.getText()+"','"+txtEmail.getText()+"','"+new String(txtPassword1.getPassword())+"')";
                 rs = stat.executeUpdate(sql);
                 System.out.println(rs);
-                JOptionPane.showMessageDialog(null, "Anda Berhasil Terdaftar");
+                JOptionPane.showMessageDialog(null, "Register Success");
                 this.dispose();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e.getMessage());
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Pastikan Password Anda Benar", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Your password not match", "Error", JOptionPane.ERROR_MESSAGE);
         }
                 }
  
