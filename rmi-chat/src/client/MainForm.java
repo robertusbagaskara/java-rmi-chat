@@ -13,6 +13,9 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +28,11 @@ import server.IServer;
  */
 public class MainForm extends javax.swing.JFrame {
     
+    Connection con;
     public static String user;
+    String sql;
+    Statement stat;
+    int rs;
 
     /**
      * Creates new form MainForm
@@ -33,6 +40,10 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() {
         initComponents();
         PlaceHolder chat = new PlaceHolder(txtChatInput, "Enter your chat here..");
+        ConnectionClass DB = new ConnectionClass();
+        DB.config();
+        con = DB.con;
+        stat = DB.stm;
     }
 
     /**
@@ -178,6 +189,14 @@ public class MainForm extends javax.swing.JFrame {
 //                iserver.MsgToServer(jTextField1.getText(), nickname, jComboBox1.getSelectedItem().toString());
                 iserver.MsgToServer(txtChatInput.getText(), user, jComboBox1.getSelectedItem().toString());
                 txtChatInput.setText("");
+                String inputThis = user;
+                try {
+                    sql = "INSERT INTO tb_msg(message, sender, receiver) VALUES ('"+ txtChatInput.getText() + "','" + inputThis + "','" + jComboBox1.getSelectedItem().toString() +"')";
+                    rs = stat.executeUpdate(sql);
+                    System.out.println(rs);
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }

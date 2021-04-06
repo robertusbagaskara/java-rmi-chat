@@ -1,3 +1,6 @@
 # Simple Desktop App using Java RMI
 
-Source code for "rmi implement test" commit, is get from : [Youtube - TAUFIQ ZULHUSNI G.](https://youtu.be/vlOKjWRsC10)
+Creating using :
+- Netbeans 8.2
+- JDK 8
+- mysql database

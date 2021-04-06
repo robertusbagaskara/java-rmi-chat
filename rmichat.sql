@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2021 at 04:27 AM
+-- Generation Time: Apr 06, 2021 at 11:47 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -28,11 +28,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tb_msg` (
-  `id` varchar(100) NOT NULL,
+  `id` int(100) NOT NULL,
   `message` text NOT NULL,
   `sender` varchar(25) NOT NULL,
-  `receiver` varchar(25) NOT NULL
+  `receiver` varchar(25) NOT NULL,
+  `sending_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_msg`
+--
+
+INSERT INTO `tb_msg` (`id`, `message`, `sender`, `receiver`, `sending_time`) VALUES
+(2, '', 'Bagas', 'Glenn', '2021-04-06 09:46:52');
 
 -- --------------------------------------------------------
 
@@ -53,8 +61,8 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id`, `nama`, `email`, `password`, `block`) VALUES
-(1, 'Bagas', 'bagas@mail.com', '123', 'alpha'),
-(2, 'Nio', 'nio@mail.com', '123', 'alpha'),
+(1, 'Bagas', 'bagas@mail.com', '123', NULL),
+(2, 'Nio', 'nio@mail.com', '123', NULL),
 (3, 'Glenn', 'glenn@mail.com', '123', NULL),
 (4, 'Tristan', 'tristan@mail.com', '123', NULL),
 (8, 'Dummy', 'dummy@mail.com', '123', NULL);
@@ -62,6 +70,12 @@ INSERT INTO `tb_user` (`id`, `nama`, `email`, `password`, `block`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `tb_msg`
+--
+ALTER TABLE `tb_msg`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tb_user`
@@ -72,6 +86,12 @@ ALTER TABLE `tb_user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `tb_msg`
+--
+ALTER TABLE `tb_msg`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
