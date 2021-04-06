@@ -24,7 +24,7 @@ public class ConnectionClass {
             con=DriverManager.getConnection("jdbc:mysql://localhost/rmichat", "root", "");
             stm = con.createStatement();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "koneksi gagal " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Ooops, connection failed " + e.getMessage());
         }
     }
 }

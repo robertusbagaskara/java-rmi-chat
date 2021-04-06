@@ -32,6 +32,8 @@ public class Register extends javax.swing.JFrame {
         DB.config();
         con = DB.con;
         stat = DB.stm;
+        
+        setLocationRelativeTo(null); // center the frame
     }
 
     /**
@@ -196,26 +198,28 @@ public class Register extends javax.swing.JFrame {
         String jPass1 = Arrays.toString(txtPassword1.getPassword());
         String jPass2 = Arrays.toString(txtPassword2.getPassword());
         if (txtNama.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null, "Name can't be null");}
+            JOptionPane.showMessageDialog(null, "Name can't be null");}
         if (txtEmail.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null, "Email can't be null");}
+            JOptionPane.showMessageDialog(null, "Email can't be null");}
         if (txtPassword1.getText().isEmpty() || txtPassword2.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null, "Please enter your password");}
+            JOptionPane.showMessageDialog(null, "Please enter your password");}
         else{
-        if (jPass1.equals(jPass2)){
-            try {
-                sql = "INSERT INTO tb_user(nama, email, password) VALUES ('"+txtNama.getText()+"','"+txtEmail.getText()+"','"+new String(txtPassword1.getPassword())+"')";
-                rs = stat.executeUpdate(sql);
-                System.out.println(rs);
-                JOptionPane.showMessageDialog(null, "Register Success");
-                this.dispose();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, e.getMessage());
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Your password not match", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+            if (jPass1.equals(jPass2)){
+                try {
+                    sql = "INSERT INTO tb_user(nama, email, password) VALUES ('"+txtNama.getText()+"','"+txtEmail.getText()+"','"+new String(txtPassword1.getPassword())+"')";
+                    rs = stat.executeUpdate(sql);
+                    System.out.println(rs);
+                    JOptionPane.showMessageDialog(null, "Register Success");
+                    this.dispose();
+                    MainForm main = new MainForm();
+                    main.setVisible(true);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, e.getMessage());
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "Your password not match", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
  
     }//GEN-LAST:event_jButton1ActionPerformed
 

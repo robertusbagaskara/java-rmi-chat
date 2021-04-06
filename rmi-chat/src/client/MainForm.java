@@ -28,6 +28,11 @@ import server.IServer;
  */
 public class MainForm extends javax.swing.JFrame {
     
+    static MainForm mf;
+    static ClientObj clientObj;
+    static IServer iserver;
+    static String host;
+    
     Connection con;
     public static String user;
     String sql;
@@ -44,6 +49,8 @@ public class MainForm extends javax.swing.JFrame {
         DB.config();
         con = DB.con;
         stat = DB.stm;
+        
+         setLocationRelativeTo(null); // center the frame
     }
 
     /**
@@ -186,7 +193,6 @@ public class MainForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER && !txtChatInput.getText().equals("")) {
             try {
-//                iserver.MsgToServer(jTextField1.getText(), nickname, jComboBox1.getSelectedItem().toString());
                 iserver.MsgToServer(txtChatInput.getText(), user, jComboBox1.getSelectedItem().toString());
                 txtChatInput.setText("");
                 String inputThis = user;
@@ -215,7 +221,6 @@ public class MainForm extends javax.swing.JFrame {
     private void formWindowsClosing(java.awt.event.WindowEvent evt) {
         try {
             if(iserver != null) {
-//                iserver.LogoutToServer(clientObj, nickname);
                 iserver.LogoutToServer(clientObj, user);
             }
         } catch (RemoteException ex) {
@@ -263,23 +268,7 @@ public class MainForm extends javax.swing.JFrame {
                     mf.setVisible(true);
                     
                     clientObj = new ClientObj();
-//                    host = JOptionPane.showInputDialog("Masukan Server Chat", "localhost");
-                    iserver = (IServer)Naming.lookup("//localhost/DpkServer");
-                    
-//                    boolean flag = true;
-//                    while(flag) {
-//                        nickname = JOptionPane.showInputDialog("Masukan Nickname Anda");
-//                        if(nickname==null) {
-//                            JOptionPane.showConfirmDialog(mf, "Maaf Masukan NickName anda", "Nick Name", JOptionPane.CLOSED_OPTION);
-//                        } else if(!nickname.equalsIgnoreCase("")) {
-//                            if(iserver.RegisterToServer(clientObj, nickname)) {
-//                                mf.setTitle("User : " + nickname);
-//                                flag = false;
-//                            } else {
-//                                JOptionPane.showConfirmDialog(mf, "NickName yang anda gunakan sudah ada", "Nick Name Sudah Ada", JOptionPane.CLOSED_OPTION);
-//                            }
-//                        }
-//                    }
+                    iserver = (IServer)Naming.lookup("//localhost/ChatServer");
                     if(iserver.RegisterToServer(clientObj, user)) {
                         mf.setTitle("User : " + user);
                     } else {
@@ -324,13 +313,6 @@ public class MainForm extends javax.swing.JFrame {
     public void NewMsg(String msg, String FromUser) {
         txtChatHistory.append(FromUser + " : " + msg + "\n");
     }
-    
-    /*variable*/
-    static MainForm mf;
-    static ClientObj clientObj;
-    static IServer iserver;
-    static String host;
-//    static String nickname;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;

@@ -38,6 +38,8 @@ public class Login extends javax.swing.JFrame {
         DB.config();
         con = DB.con;
         stat = DB.stm;
+        
+        setLocationRelativeTo(null); // center the frame
     }
 
     /**
@@ -218,10 +220,9 @@ public class Login extends javax.swing.JFrame {
                     String user[] = new String[1];
                     user[0] = txtUsername.getText();
                     MainForm.main(user);
-                    this.setVisible(false);
-//                ServerObj.StartServer();    
+                    this.setVisible(false); 
                 } else {
-                    JOptionPane.showMessageDialog(null, "Username or Password is Wrong");
+                    JOptionPane.showMessageDialog(this, "Username or Password is Wrong");
                 }
             }
         } catch (Exception e) {

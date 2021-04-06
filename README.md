@@ -1,6 +1,6 @@
 # Simple Desktop App using Java RMI
 
-Creating using :
+Creating this using :
 - Netbeans 8.2
-- JDK 8
-- mysql database
+- Java 8
+- MySQL Database - phpMyAdmin

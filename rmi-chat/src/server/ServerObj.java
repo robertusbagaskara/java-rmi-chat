@@ -31,7 +31,7 @@ public class ServerObj extends UnicastRemoteObject implements IServer {
     public static void main(String[] args) {
         try {
             reg = java.rmi.registry.LocateRegistry.createRegistry(1099);
-            Naming.bind("DpkServer", new ServerObj());
+            Naming.bind("ChatServer", new ServerObj());
             System.out.println("Server is Ready");
         } catch (AlreadyBoundException ex) {
             Logger.getLogger(ServerObj.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,7 +48,7 @@ public class ServerObj extends UnicastRemoteObject implements IServer {
     
     public static void StopServer() {
         try {
-            reg.unbind("DpkServer");
+            reg.unbind("ChatServer");
             UnicastRemoteObject.unexportObject(reg, true);
             System.out.println("Server Stopped");
         } catch (RemoteException ex) {
